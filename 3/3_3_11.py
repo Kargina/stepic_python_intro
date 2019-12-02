@@ -15,12 +15,14 @@ class CarBase:
 class Car(CarBase):
     def __init__(self, brand, photo_file_name, carrying, passenger_seats_count):
         super().__init__(brand, photo_file_name, carrying)
+        self.car_type = "car"
         self.passenger_seats_count = passenger_seats_count
 
 
 class Truck(CarBase):
     def __init__(self, brand, photo_file_name, carrying, body_whl):
         super().__init__(brand, photo_file_name, carrying)
+        self.car_type = "truck"
         # print(body_whl.split('x')[2])
         try:
             self.body_width = float(body_whl.split('x')[0])
@@ -36,6 +38,7 @@ class Truck(CarBase):
 class SpecMachine(CarBase):
     def __init__(self, brand, photo_file_name, carrying, extra):
         super().__init__(brand, photo_file_name, carrying)
+        self.car_type = "spec_machine"
         self.extra = extra
 
 
