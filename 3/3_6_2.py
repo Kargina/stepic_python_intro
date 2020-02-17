@@ -17,8 +17,7 @@ class Matrix:
             matrix_str += '\n'
         matrix_str = matrix_str.rstrip('\n')
         return matrix_str
-        
-
+    
 
     def append(self, element=None):
         pass
