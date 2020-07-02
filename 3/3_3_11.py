@@ -1,6 +1,7 @@
 import os
 import csv
 
+
 class CarBase:
     def __init__(self, brand, photo_file_name, carrying):
         self.brand = brand
@@ -9,7 +10,7 @@ class CarBase:
     
     def get_photo_file_ext(self):
         extension = os.path.splitext(self.photo_file_name)
-        return(extension[1])
+        return extension[1]
 
 
 class Car(CarBase):
@@ -23,7 +24,6 @@ class Truck(CarBase):
     def __init__(self, brand, photo_file_name, carrying, body_whl):
         super().__init__(brand, photo_file_name, carrying)
         self.car_type = "truck"
-        # print(body_whl.split('x')[2])
         try:
             self.body_width = float(body_whl.split('x')[0])
             self.body_height = float(body_whl.split('x')[1])
@@ -35,6 +35,7 @@ class Truck(CarBase):
         volume = self.body_width * self.body_height * self.body_length
         return volume
 
+
 class SpecMachine(CarBase):
     def __init__(self, brand, photo_file_name, carrying, extra):
         super().__init__(brand, photo_file_name, carrying)
@@ -45,7 +46,6 @@ class SpecMachine(CarBase):
 def get_car_list(csv_filename):
     car_list = []
     result = []
-    
 
     with open(csv_filename) as csv_fd:
         reader = csv.reader(csv_fd, delimiter=';')
@@ -59,7 +59,6 @@ def get_car_list(csv_filename):
             row[2] = int(row[2])
         if row[5]:
             row[5] = float(row[5])
-    # print(car_list)
     for row in car_list:
         if row[0] == 'car':
             car = Car(row[1], row[3], row[5], row[2])
@@ -70,11 +69,4 @@ def get_car_list(csv_filename):
         elif row[0] == 'spec_machine':
             spec_machine = SpecMachine(row[1], row[3], row[5], row[6])
             result.append(spec_machine)
-
- 
-
-    # print(car_list)
-    # print(result)
     return result
-
-# get_car_list("cars.csv")
