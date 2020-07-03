@@ -148,21 +148,3 @@ class CalendarBook(Book):
         super().__init__(title, content)
 
     bookmark = CalendarBookmark()
-
-
-        
-# book = CalendarBook('2018')
-# # print(book.bookmark)
-# book.bookmark = 2
-# # print(book.bookmark)
-# # book.bookmark = 0
-# # del book.bookmark
-# print(book[10])
-
-book = CalendarBook('2018')
-print(book.title)
-print(book[1])
-print(book[2])
-print(book[32])
-print(book[33])
-# print(book[0])
